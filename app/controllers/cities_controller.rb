@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
     
      before_action :auth_admin
+     
      def index
         @cities = City.all
      end
@@ -21,5 +22,10 @@ class CitiesController < ApplicationController
          
      end 
      
+     def destroy
+        city = City.find(params[:id])
+        city.destroy
+        redirect_to cities_path
+     end
      
 end
