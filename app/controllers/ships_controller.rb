@@ -32,4 +32,12 @@ class ShipsController < ApplicationController
         redirect_to ships_path
      end
      
+     def show
+        @ship = Ship.find(params[:id])
+     end
+     
+     
+     def cabin_create
+     end
+     
 end
