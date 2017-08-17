@@ -13,6 +13,7 @@
 #
 
 class Cruise < ApplicationRecord
+    has_and_belongs_to_many :cities
     belongs_to :ship
     validates :name , :duration , presence: true
     validates :name , uniqueness: {scope: [:name , :ship_id]}

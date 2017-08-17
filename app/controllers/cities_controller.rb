@@ -13,6 +13,7 @@ class CitiesController < ApplicationController
      
      def create 
          @city = City.new(params[:city].permit(:name , :country , :photo))
+         
          if @city.save
              redirect_to cities_path
          else 

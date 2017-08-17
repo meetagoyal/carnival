@@ -36,6 +36,11 @@ class ShipsController < ApplicationController
         @ship = Ship.find(params[:id])
      end
      
+     def showcruises
+        @ship = Ship.find(params[:id])
+        
+     end
+     
      
      def cabin_create
      end

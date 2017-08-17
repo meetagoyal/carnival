@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817161729) do
+ActiveRecord::Schema.define(version: 20170817165401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20170817161729) do
     t.datetime "updated_at", null: false
     t.index ["name", "country"], name: "index_cities_on_name_and_country", unique: true
     t.index ["name"], name: "index_cities_on_name", unique: true
+  end
+
+  create_table "cities_cruises", id: false, force: :cascade do |t|
+    t.bigint "city_id", null: false
+    t.bigint "cruise_id", null: false
+    t.index ["city_id"], name: "index_cities_cruises_on_city_id"
+    t.index ["cruise_id"], name: "index_cities_cruises_on_cruise_id"
   end
 
   create_table "cruises", force: :cascade do |t|
@@ -74,5 +81,7 @@ ActiveRecord::Schema.define(version: 20170817161729) do
   end
 
   add_foreign_key "cabins", "ships"
+  add_foreign_key "cities_cruises", "cities"
+  add_foreign_key "cities_cruises", "cruises"
   add_foreign_key "cruises", "ships"
 end

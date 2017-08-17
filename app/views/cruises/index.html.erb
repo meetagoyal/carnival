@@ -1,0 +1,27 @@
+<h1 class="display-4">Cruises</h1>
+
+
+<a href="/cruises/new" class="btn btn-outline-primary m-2">
+  <i class="fa fa-plus-circle"></i> New Cruise </a>
+
+
+
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Duration</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @cruises.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.name %></td>
+        <td><%= c.duration %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
